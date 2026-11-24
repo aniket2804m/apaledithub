@@ -1,0 +1,254 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Cinzel:wght@400;500;600;700;800;900&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Premium Futuristic Dark & Gold Design System */
+    --background: 0 0% 2%; /* Deep Black #050505 */
+    --foreground: 0 0% 98%; /* Crisp Off-White #FAFAFA */
+
+    --card: 0 0% 5%; /* Dark Charcoal #0C0C0E */
+    --card-foreground: 0 0% 98%;
+
+    --popover: 0 0% 5%;
+    --popover-foreground: 0 0% 98%;
+
+    --primary: 43 100% 50%; /* Vibrant Golden Yellow #FFB800 */
+    --primary-foreground: 0 0% 5%; /* Deep Black #050505 */
+
+    --secondary: 220 15% 15%; /* Muted Charcoal #1E2025 */
+    --secondary-foreground: 0 0% 98%;
+
+    --muted: 220 14% 10%; /* #121418 */
+    --muted-foreground: 220 9% 65%; /* Soft Grey #9CA3AF */
+
+    --accent: 43 100% 50%; /* Vibrant Golden Yellow #FFB800 */
+    --accent-foreground: 0 0% 5%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 0 0% 14%; /* Subtle dark grey border rgba(255,255,255,0.08) */
+    --input: 0 0% 14%;
+    --ring: 43 100% 50%; /* Golden Focus Ring #FFB800 */
+
+    --radius: 16px;
+
+    /* Global Oyemarketor / Agency Design Tokens */
+    --brand-black: #050505;
+    --brand-charcoal: #0D0D11;
+    --brand-dark-card: #121216;
+    --brand-yellow: #FFB800;
+    --brand-yellow-hover: #E5A600;
+    --brand-orange: #FF9900;
+    --brand-text: #FFFFFF;
+    --brand-text-muted: #A1A1AA;
+    --brand-border: rgba(255, 255, 255, 0.08);
+    --brand-border-glow: rgba(255, 184, 0, 0.35);
+
+    /* Sidebar Tokens */
+    --sidebar-background: 0 0% 3%;
+    --sidebar-foreground: 0 0% 98%;
+    --sidebar-primary: 43 100% 50%;
+    --sidebar-primary-foreground: 0 0% 5%;
+    --sidebar-accent: 0 0% 10%;
+    --sidebar-accent-foreground: 0 0% 98%;
+    --sidebar-border: 0 0% 14%;
+    --sidebar-ring: 43 100% 50%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  /* Smooth rounded corners across UI elements */
+  div.rounded-none:not(.marquee-track),
+  section.rounded-none,
+  img.rounded-none,
+  article.rounded-none,
+  li.rounded-none,
+  form.rounded-none {
+    border-radius: 16px;
+  }
+
+  /* Smooth rounded inputs and textareas */
+  input,
+  textarea,
+  select {
+    border-radius: 12px;
+    background-color: #0E0E12;
+    color: #FAFAFA;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
+    transition: all 0.25s ease-in-out;
+  }
+
+  input:focus,
+  textarea:focus,
+  select:focus {
+    outline: none;
+    border-color: #FFB800 !important;
+    box-shadow: 0 0 0 3px rgba(255, 184, 0, 0.25) !important;
+    background-color: #121217;
+  }
+
+  /* Buttons: Smooth rounded corners, vibrant gold/yellow background with dark text */
+  button:not(.rounded-full):not(.close-btn):not(.icon-btn):not(.select-trigger),
+  .button:not(.rounded-full),
+  .btn:not(.rounded-full),
+  [type="button"]:not(.rounded-full),
+  [type="submit"],
+  [type="reset"],
+  a.button,
+  a[class*="bg-[#FFB800]"],
+  a[class*="bg-[#FFC400]"],
+  a[class*="bg-primary"] {
+    border-radius: 9999px;
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  button:not(.rounded-full):not(.close-btn):not(.icon-btn):not(.select-trigger):hover:not(:disabled),
+  .button:not(.rounded-full):hover,
+  .btn:not(.rounded-full):hover,
+  [type="button"]:not(.rounded-full):hover,
+  [type="submit"]:hover:not(:disabled),
+  a[class*="bg-[#FFB800]"]:hover,
+  a[class*="bg-[#FFC400]"]:hover,
+  a[class*="bg-primary"]:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 30px rgba(255, 184, 0, 0.4);
+  }
+
+  html {
+    scroll-behavior: smooth;
+    background-color: #050505;
+    color: #FAFAFA;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Montserrat', sans-serif;
+    background-color: #050505;
+    color: #FAFAFA;
+    overflow-x: hidden;
+  }
+}
+
+@layer utilities {
+  .font-cormorant {
+    font-family: 'Cormorant Garamond', serif;
+  }
+
+  .font-cinzel {
+    font-family: 'Cinzel', serif;
+  }
+
+  .font-montserrat {
+    font-family: 'Montserrat', sans-serif;
+  }
+
+  /* Premium Futuristic Glassmorphism Utilities */
+  .glass {
+    background: rgba(18, 18, 22, 0.7);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  }
+
+  .glass-card {
+    background: rgba(14, 14, 18, 0.75);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.07);
+    box-shadow: 0 12px 36px rgba(0, 0, 0, 0.5);
+    transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .glass-card:hover {
+    transform: translateY(-4px);
+    border-color: rgba(255, 184, 0, 0.35);
+    box-shadow: 0 20px 45px rgba(0, 0, 0, 0.7), 0 0 25px rgba(255, 184, 0, 0.15);
+  }
+
+  .glass-nav {
+    background: rgba(5, 5, 5, 0.85);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+    box-shadow: 0 4px 25px rgba(0, 0, 0, 0.7);
+  }
+
+  .glass-navy {
+    background: rgba(15, 15, 20, 0.95);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.6);
+  }
+
+  .glass-input {
+    background: rgba(15, 15, 20, 0.85);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  /* Reference Diagonal Geometric Grid */
+  .diagonal-grid-pattern {
+    background-image: 
+      linear-gradient(45deg, rgba(255, 255, 255, 0.035) 1px, transparent 1px),
+      linear-gradient(-45deg, rgba(255, 255, 255, 0.035) 1px, transparent 1px);
+    background-size: 40px 40px;
+  }
+
+  .hero-dark-vignette {
+    background: radial-gradient(circle at 50% 30%, transparent 20%, #050505 85%);
+  }
+
+  /* Luxurious Subtle Gradients */
+  .gold-gradient-text {
+    background: linear-gradient(135deg, #FFD54F 0%, #FFB800 50%, #FF8F00 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .yellow-gradient {
+    background: linear-gradient(135deg, #FFB800 0%, #FF9900 100%);
+  }
+
+  .yellow-glow {
+    box-shadow: 0 0 30px rgba(255, 184, 0, 0.4);
+  }
+
+  .yellow-border-glow {
+    border-color: rgba(255, 184, 0, 0.5);
+    box-shadow: 0 0 20px rgba(255, 184, 0, 0.2);
+  }
+
+  .scrollbar-none::-webkit-scrollbar {
+    display: none;
+  }
+  .scrollbar-none {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  /* Border utilities */
+  .gold-border {
+    border: 1px solid rgba(255, 184, 0, 0.25);
+  }
+
+  .gold-border-hover:hover {
+    border-color: #FFB800;
+    box-shadow: 0 0 20px rgba(255, 184, 0, 0.35);
+  }
+
+  .gold-text-glow {
+    text-shadow: 0 0 25px rgba(255, 184, 0, 0.5);
+  }
+}
